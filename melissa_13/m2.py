@@ -1,4 +1,17 @@
+import os 
 import streamlit as st
+
+# 1) 이 스크립트(m2.py)가 있는 디렉터리
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 2) logo.png 경로 생성
+logo_path = os.path.join(base_dir, "logo.png")
+
+# 3) 존재 여부 확인 후 출력
+if os.path.exists(logo_path):
+    st.image(logo_path, use_container_width=False)
+else:
+    st.error(f"❌ logo.png 파일을 찾을 수 없습니다:\n{logo_path}")
 
 # --- 스타일 커스텀 ---
 st.markdown("""

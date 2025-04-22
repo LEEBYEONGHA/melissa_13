@@ -61,7 +61,16 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- 로고 & 타이틀 ---
-st.image("logo.png", use_container_width=False)
+# st.image("logo.png", use_container_width=False)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+logo_path = os.path.join(base_dir, "logo.png")
+
+if os.path.exists(logo_path):
+    st.image(logo_path, use_container_width=False)
+else:
+    st.error(f"❌ logo.png 파일을 찾을 수 없습니다:\n{logo_path}")
+
+
 st.markdown("""
     <div style='margin-top: -30px; text-align: center; font-size: 25px; font-weight: bold;'>
         
